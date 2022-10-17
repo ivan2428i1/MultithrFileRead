@@ -1,0 +1,7 @@
+Makefile
+*.Debug
+*.Release
+*.user
+Debug/
+Release/
+.qtc_clangd/
