@@ -64,11 +64,15 @@ class Scanner
             std::cerr << "Unable to open file " << filename << std::endl;
             return;
         }
+        std::cout << "\n===== NEW THREAD +++++ \n\n" << std::endl;
         file.seekg(start, std::ifstream::beg);
         std::string line;
         int line_num {0};
+        if (start != 0)
+            std::getline(file, line); // we've already scanned this line before
         while (std::getline(file, line))
         {
+            std::cout << "line: " << line << std::endl;
             _total_lines_scanned++;
             ScanOneLine(++line_num, line);
             if (file.tellg() >= stop)
@@ -133,17 +137,17 @@ int main(int argc, char *input[])
     for (int i{0}; i < num_thr; i++)
     {// Calculating boundaries for every thread:
         file.open(filename);
-        sc_v[i].start_byte = (i == 0) ? 0: sc_v[i-1].end_byte;
+        sc_v[i].start_byte = (i == 0) ? 0: sc_v[i-1].end_byte - 1;
         if (i == (num_thr - 1))
             file.seekg(0, std::ios_base::end);
         else
         {
-            file.seekg(sc_v[i].start_byte + filesize / num_thr);
-            std::string oneline;
-            if (!file.eof())
-                std::getline(file, oneline); // we can't fraction a line, boundaries must be between lines
+            int prel_end = sc_v[i].start_byte + filesize / num_thr;
+            std::cout << "prelim end byte: " << prel_end << std::endl; //DEBUG
+            file.seekg(prel_end);
         }
         sc_v[i].end_byte = file.eof() ? (filesize - 1): (int)file.tellg();
+        std::cout << "Actual end byte: " << sc_v[i].end_byte << std::endl; // DEBUG
         file.close();
     }
     for (auto& [sc, start_b, end_b]: sc_v) // c++17 syntax

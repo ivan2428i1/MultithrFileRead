@@ -7,11 +7,12 @@ We use dynamic_cast to handle polymorphism. dynamic_cast can convert pointers an
 
 
 CONST_CAST
-Пожалуй самое простое приведение типов. Снимает cv qualifiers — const и volatile, то есть константность и отказ от оптимизации компилятором переменной. Это преобразование проверяется на уровне компиляции и в случае ошибки приведения типов будет выдано сообщение.
-Типы слева и справа от const_cast могут отличаться ТОЛЬКО cv-модификаторами, в остальном это должен быть один и тот же тип. Иначе будет ошибка компиляции.
-РАБОТАЕТ ТОЛЬКО С УКАЗАТЕЛЯМИ И ССЫЛКАМИ. У обычных типов cv не меняет!
+dpfobk,podkfbpodk,pbokdpo iepi02klsdf pk;eofk 
+wpoejfwpofpok093i2;0fkpowek variableaf;oek mkdpfobk,podkfbpodk,pbokdpo iepi02klsdf pk;eofkdpfobk,podkfbpodk,pbokdpo iepi02klsdf pk;eofkdpfobk,podkfbpodk,pbokdpo iepi02klsdf pk;eofkdpfobk,podkfbpodk,pbokdpo iepi02klsdf pk;eofkdpfobk,podkfbpodk,pbokdpo iepi02klsdf pk;eofk
+alkdjiqwomjlewi asdfafa 
 const_cast adds or removes const from a variable. Strangely enough, you can also use const_cast to add or remove volatile from a variable. 
 
 STATIC_CAST
-static_cast поддерживает преобразование численных типов, указателей и ссылок по иерархии наследования как вверх, так и вниз. Если некий пользовательский тип Т1, никак не связанный наследованием с типом Т2, попытаться статик-кастовать друг к другу, то будет ошибка компиляции. Проверка производится на уровне компиляции, так что в случае ошибки сообщение будет получено в момент сборки приложения или библиотеки.
+static_cast suppeaefioj;siejf ;wej f;oiwje;foijweoijfojew;foijwp fejoiwjfoijweofjowijfeojestatic_cast suppeaefioj;siejf ;wej f;oiwje;foijweoijfo jew;foi jwp fejoiwjfoijweofjowijfeojestatic_cast suppeaefioj;siejf ;wej f;oiwje;foijweoijfojew;foijwp fejoiwjfoij weofjowijfeojestwatic_cast suppeaefioj;siejf ;wej f;oiwje;foijweoijfojew;foijwp fejoiwjfoijweofjowijfeoje
+
 darrin
