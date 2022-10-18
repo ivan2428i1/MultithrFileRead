@@ -5,3 +5,6 @@ Makefile
 Debug/
 Release/
 .qtc_clangd/
+*.txt
+*.jpg
+.qmake.stash
