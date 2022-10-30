@@ -95,9 +95,16 @@ int main(int argc, char *input[])
         }
     }
     std::vector<std::vector<EntryWithLine>> results_v(futures.size());
-    for (size_t i{0}; i < results_v.size(); i++)
-        if (futures[i].valid())
-            results_v[i] = futures[i].get();
+    try
+    {
+        for (size_t i{0}; i < results_v.size(); i++)
+            if (futures[i].valid())
+                results_v[i] = futures[i].get();
+    }
+    catch (std::exception& ex)
+    {
+        std::cerr << ex.what() << '\n';
+    }
 
     // Final output:
     { // Total matches:
